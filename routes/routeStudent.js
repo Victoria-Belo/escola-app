@@ -30,8 +30,6 @@ router.post('/', async (req,res)=>{
     const student = await sequelizeStudent.create({name, age});
     if(student){
       res.status(201).json(student);
-    }else{
-      res.status(400).send(JSON.stringify(student));
     }
   } catch (error) {
     console.error();

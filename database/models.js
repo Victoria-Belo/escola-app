@@ -29,7 +29,7 @@ const sequelizeTeacher = sequelize.define('Professor', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  class: {
+  subject: {
     type: DataTypes.STRING,
     allowNull: false,
   },
