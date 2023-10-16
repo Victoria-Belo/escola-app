@@ -7,7 +7,7 @@ escola-app/
   ├── database(back-end)/
   ├── views/
   ├── routes(back-end)/
-  │   ├── routersUsers.js
+  │   ├── routeStudent.js
   │   ├──  
   ├── app.js
   ├── package.json
@@ -30,4 +30,12 @@ escola-app/
       | - nome: string  |   | - alunoId: int  |
       | - cargaHoraria: |   | - disciplinaId: |
       |   int           |   |   int           |
+      |                 |   | - nota: float   |
+      |                 |   | - professorId:  |
+      |                 |   | int             |   
       +-----------------+   +-----------------+
+
+Aluno tem uma ou muitas Disciplinas. Muitas disciplinas podem ter muitos alunos. -> many-to-many
+Aluno pode ter muitas notas. Muitas notas pertecem a um aluno. -> one-to-many
+Professor pode lecionar uma ou muitas Disciplinas. Disciplinas são lecionadas por um professor. -> one-to-many
+Professor pode dar nota a muitos Alunos. Alunos podem ter muitas Notas. -> many-to-many
