@@ -76,18 +76,18 @@ router.delete('/:id', async(req,res)=>{
     console.log('materia ID ', req.params.classeSchoolID, '\nprofessor ID ', req.params.teacherID)
     const classeSchool = await sequelizeClass.findByPk(parseInt(req.params.classeSchoolID));
     if(!classeSchool){
-        res.status(404).send("Error: Class school not found in database. Check ID Class and try again.").end();
+        res.status(404).send("Error: Class school not found in database. Check ID Class and try again.");
     }
     // Busque professor. Se encontra prossiga; Se não, informe ao usuário e encerre.
     const teacher = await sequelizeTeacher.findByPk(parseInt(req.params.teacherID));
     if(!teacher){
-        res.status(404).send(`Error: Teacher ID ${req.params.teacherID} not found in database. Check ID and try again.`).end();
+        res.status(404).send(`Error: Teacher ID ${req.params.teacherID} not found in database. Check ID and try again.`);
     }
-    teacher.subject = classeSchool.name; 
+    teacher.subject = classeSchool.name;
     classeSchool.ProfessorId = req.params.teacherID;
     try {        
-        classeSchool.save();
-        teacher.save();
+        await classeSchool.save();
+        await teacher.save();
         res.status(200).json(classeSchool);
     } catch (error) {
         console.error(error);
