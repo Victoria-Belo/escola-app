@@ -35,15 +35,14 @@ const sequelizeTeacher = sequelize.define('Professor', {
   },
 });
 
-
 const sequelizeClass = sequelize.define('Disciplina', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   workload: {
-    type: DataTypes.FLOAT    
-   
+    type: DataTypes.INTEGER,  
+    allowNull: true,  
   },
 });
 
@@ -52,10 +51,9 @@ const sequelizeGrade = sequelize.define('Nota', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  workload: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+  value: {
+    type: DataTypes.FLOAT,
+    allowNull: true,  
   },
 });
 
@@ -77,4 +75,4 @@ sequelizeGrade.belongsTo(sequelizeStudent);
 sequelizeTeacher.hasMany(sequelizeClass);
 sequelizeClass.belongsTo(sequelizeTeacher);
 
-module.exports =  {sequelizeStudent,sequelizeTeacher,sequelizeClass,sequelizeGrade, sequelize };
+module.exports =  { sequelizeStudent, sequelizeTeacher, sequelizeClass, sequelizeGrade, sequelize };
