@@ -13,9 +13,8 @@ const classeSchool = require('./routes/routerClasses');
 // Rotas
     app.use('/v1/estudante', student);
     app.use('/v1/professor', teacher);
-    app.use('/v1/disciplina', grade);
-    app.use('/v1/avaliacao', classeSchool);
-
+    app.use('/v1/disciplina', classeSchool);
+    app.use('/v1/avaliacao', grade);
 
 // Depuração
 // console.log('o que tem dentro do sequelize? ->', sequelize);
