@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const {sequelizeTeacher} = require('../database/models');
+const {sequelizeGrade} = require('../database/models');
 
 
 router.get('/',async(req,res)=>{
-    const teachers = await sequelizeTeacher.findAll();
-    res.status(200).json(teachers);
+    const grades = await sequelizeGrade.findAll();
+    res.status(200).json(grades);
  });
 
 router.get('/:id', async(req,res)=>{
     try {
-        const teacher = await sequelizeTeacher.findByPk(parseInt(req.params.id));
-        if(!teacher){
+        const grade = await sequelizeGrade.findByPk(parseInt(req.params.id));
+        if(!grade){
             res.status(404).send(`ID ${req.params.id} not found`);
         }else{
-            res.status(200).json(teacher);
+            res.status(200).json(grade);
         }
     } catch (error) {
         console.error(error);
@@ -24,10 +24,10 @@ router.get('/:id', async(req,res)=>{
 
 router.post('/', async(req, res)=>{
     try {
-        const { name, age, subject } = req.body;
-        const teacher = await sequelizeTeacher.create({ name, age, subject });
-        if(teacher){
-            res.status(201).json(teacher);
+        const { name, value } = req.body;
+        const grade = await sequelizeGrade.create({ name, value });
+        if(grade){
+            res.status(201).json(grade);
         }        
     } catch (error) {
         console.error();
@@ -36,17 +36,16 @@ router.post('/', async(req, res)=>{
 });
 
 router.put('/:id', async(req,res)=>{
-    const teacher = await sequelizeTeacher.findByPk(parseInt(req.params.id));
-    if(!teacher){
+    const grade = await sequelizeGrade.findByPk(parseInt(req.params.id));
+    if(!grade){
         res.status(404).send(`ID ${req.params.id} not found`);
     }
     try {
-        const {name, age, subject} = req.body;
-        teacher.name = name === undefined ? teacher.name : name;
-        teacher.age = age === undefined ? teacher.age : age;
-        teacher.subject = subject === undefined ? teacher.subject : subject;   
-        await teacher.save();
-        res.status(201).json(teacher);        
+        const {name,value} = req.body;
+        grade.name  = name === undefined ? grade.name  : name;
+        grade.value = value === undefined ? grade.value : value;
+        grade.save();
+        res.status(201).json(grade);        
     } catch (error) {
         console.error(error);
         res.status(500).send(`Error: Oops! ${error.message}`);
@@ -54,12 +53,12 @@ router.put('/:id', async(req,res)=>{
  });
 
 router.delete('/:id', async(req,res)=>{
-    const teacher = await sequelizeTeacher.findByPk(parseInt(req.params.id));
-    if(!teacher){
+    const grade = await sequelizeGrade.findByPk(parseInt(req.params.id));
+    if(!grade){
         res.status(404).send('');
     }
     try {
-        const content = await sequelizeTeacher.destroy({where: { id: parseInt(req.params.id)}})
+        const content = await sequelizeGrade.destroy({where: { id: parseInt(req.params.id)}})
         if(content >= 1){
             res.status(204).end();
         }
