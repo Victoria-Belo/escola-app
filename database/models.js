@@ -18,7 +18,6 @@ const sequelizeStudent = sequelize.define('Estudante', {
     autoIncrement: true,
   },
 });
-
  
 const sequelizeTeacher = sequelize.define('Professor', {
   name: {
@@ -31,7 +30,7 @@ const sequelizeTeacher = sequelize.define('Professor', {
   },
   subject: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 });
 
