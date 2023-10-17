@@ -24,7 +24,8 @@ router.get('/:id', async(req,res)=>{
 
 router.post('/', async(req, res)=>{
     try {
-        const { name, age, subject } = req.body;
+        let { name, age, subject } = req.body;
+        subject = subject === undefined? 'SEM REGISTRO': subject; 
         const teacher = await sequelizeTeacher.create({ name, age, subject });
         if(teacher){
             res.status(201).json(teacher);
