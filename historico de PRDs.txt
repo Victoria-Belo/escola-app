@@ -1,0 +1,4 @@
+
+main: Configuração base do Express, Sequelize e SqLite [FEITO]
+PRD-01: Implementação da camada lógica [FEITO]
+PRD-02: Implementando camada lógica a rotas faltantes (Professor, Nota e Disciplina) [ANDAMENTO]
