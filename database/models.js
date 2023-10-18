@@ -57,12 +57,12 @@ const sequelizeGrade = sequelize.define('Nota', {
 });
 
 // Definição das tabelas de associação para many-to-many. Necessário.
-const StudentDiscipline = sequelize.define('StudentDiscipline', {});
+const StudentDisciplines = sequelize.define('StudentDisciplines', {});
 const TeacherGrade = sequelize.define('TeacherGrade', {});
 
 //  Associações many-to-many entre Aluno e Disciplina, Professor e Aluno.
-sequelizeStudent.belongsToMany(sequelizeClass, { through: 'StudentDiscipline' });
-sequelizeClass.belongsToMany(sequelizeStudent, { through: 'StudentDiscipline' });
+sequelizeStudent.belongsToMany(sequelizeClass, { through: 'StudentDisciplines' });
+sequelizeClass.belongsToMany(sequelizeStudent, { through: 'StudentDisciplines' });
 
 sequelizeTeacher.belongsToMany(sequelizeStudent, { through: 'TeacherGrade' });
 sequelizeStudent.belongsToMany(sequelizeTeacher, { through: 'TeacherGrade' });
@@ -74,4 +74,4 @@ sequelizeGrade.belongsTo(sequelizeStudent);
 sequelizeTeacher.hasMany(sequelizeClass);
 sequelizeClass.belongsTo(sequelizeTeacher);
 
-module.exports =  { sequelizeStudent, sequelizeTeacher, sequelizeClass, sequelizeGrade, sequelize };
+module.exports =  { sequelizeStudent, sequelizeTeacher, sequelizeClass, sequelizeGrade, sequelize, StudentDisciplines,TeacherGrade };

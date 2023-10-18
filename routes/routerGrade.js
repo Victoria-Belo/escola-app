@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const {sequelizeGrade} = require('../database/models');
 
-
 router.get('/',async(req,res)=>{
     const grades = await sequelizeGrade.findAll();
     res.status(200).json(grades);

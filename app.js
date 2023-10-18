@@ -1,4 +1,4 @@
-const sequelize = require('./database/models');
+const {sequelize} = require('./database/models');
 const express = require('express');
 const app = express();
 const student = require('./routes/routeStudent');
@@ -21,22 +21,12 @@ const classeSchool = require('./routes/routerClasses');
 // console.log('o que tem dentro do app = express()? ->', app);
 
 // Criando tabelas
-sequelize.sequelizeStudent.sync().then(() => {
-    console.log('Tabela ESTUDANTE sincronizada');
-  });
-  
-sequelize.sequelizeTeacher.sync().then(() => {
-    console.log('Tabela PROFESSOR sincronizada');
-  });
-  
-sequelize.sequelizeClass.sync().then(() => {
-    console.log('Tabela DISCIPLINA sincronizada');
-  });
-  
-sequelize.sequelizeGrade.sync().then(() => {
-    console.log('Tabela NOTA sincronizada');
-  });
-  
+sequelize.sync() // Isso cria as tabelas no banco de dados
+.then(() => {
   app.listen(3000, () => {
-    console.log('Servidor Express está rodando na porta 3000');
+    console.log('Server is running on port 3000');
+  });
+})
+.catch((error) => {
+  console.error('Database synchronization error:', error);
 });

@@ -1,10 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const { sequelizeStudent } = require('../database/models');
+const {sequelizeClass} =  require('../database/models');
+const {StudentDisciplines} =  require('../database/models');
 
 // Rota para buscar todos os estudantes
 router.get('/', async (req, res) => {
-  const students = await sequelizeStudent.findAll();
+  const students = await sequelizeStudent.findAll({
+    include: [
+      {
+        model: sequelizeClass,
+        as: 'Disciplinas',
+        through: { attributes: [] },
+        attributes: { exclude: ['createdAt', 'updatedAt'] }, 
+      },
+    ],
+    attributes: { exclude: ['createdAt', 'updatedAt'] }, // Exclui campos
+  });
   res.status(200).json(students);
 });
 
@@ -73,5 +85,45 @@ router.delete('/:id', async(req, res)=>{
       res.status(500).send("Oops! Something is wrong with me! Is not your fault!");
     }   
 });
+
+// Vincular aluno a disciplinas
+router.put('/add-class/:studentID/:classSchoolID', async(req, res)=>{
+  const student = await sequelizeStudent.findByPk(parseInt(req.params.studentID));
+  if(!student){
+    res.status(404).send(`ID ${req.params.id} not found`);
+  }
+  const classSchool = await sequelizeClass.findByPk(parseInt(req.params.classSchoolID));
+  if(!classSchool){
+    res.status(404).send(`ID ${req.params.id} class school not found`);
+  }
+  try {
+    await student.addDisciplina(classSchool);
+    res.status(200).json(student);   
+   } catch (error) {
+    console.log(error);
+    res.status(500).send("{ Error: Oops! Something is wrong with me! Is not your fault!}");
+  }
+});
+
+
+// Vincular aluno a disciplinas
+router.put('/remove-class/:studentID/:classSchoolID', async(req, res)=>{
+  const student = await sequelizeStudent.findByPk(parseInt(req.params.studentID));
+  if(!student){
+    res.status(404).send(`ID ${req.params.id} not found`);
+  }
+  const classSchool = await sequelizeClass.findByPk(parseInt(req.params.classSchoolID));
+  if(!classSchool){
+    res.status(404).send(`ID ${req.params.id} class school not found`);
+  }
+  try {
+    await student.removeDisciplina(classSchool);
+    res.status(200).json(student);   
+   } catch (error) {
+    console.log(error);
+    res.status(500).send("{ Error: Oops! Something is wrong with me! Is not your fault!}");
+  }
+});
+
 
 module.exports = router;

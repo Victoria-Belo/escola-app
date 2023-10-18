@@ -3,8 +3,6 @@ const router = express.Router();
 const {sequelizeClass} = require('../database/models');
 const {sequelizeTeacher} = require('../database/models');
 
-
-
 router.get('/',async(req,res)=>{
     const classSchool = await sequelizeClass.findAll();
     res.status(200).json(classSchool);
