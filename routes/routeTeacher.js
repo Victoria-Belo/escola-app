@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const {sequelizeTeacher} = require('../database/models');
-
+const {sequelizeTeacher, sequelizeCourse} = require('../database/models');
 
 router.get('/',async(req,res)=>{
-    const teachers = await sequelizeTeacher.findAll();
+    const teachers = await sequelizeTeacher.findAll({include:[ {
+        model: sequelizeCourse,
+        as: 'Disciplinas',
+        through: { attributes: [] },
+        attributes: { exclude: ['createdAt', 'updatedAt'] }, 
+    }]});
     res.status(200).json(teachers);
  });
 
@@ -24,9 +28,8 @@ router.get('/:id', async(req,res)=>{
 
 router.post('/', async(req, res)=>{
     try {
-        let { name, age, subject } = req.body;
-        subject = subject === undefined? 'SEM REGISTRO': subject; 
-        const teacher = await sequelizeTeacher.create({ name, age, subject });
+        let { name, age } = req.body;
+        const teacher = await sequelizeTeacher.create({ name, age });
         if(teacher){
             res.status(201).json(teacher);
         }        
@@ -39,13 +42,16 @@ router.post('/', async(req, res)=>{
 router.put('/:id', async(req,res)=>{
     const teacher = await sequelizeTeacher.findByPk(parseInt(req.params.id));
     if(!teacher){
-        res.status(404).send(`ID ${req.params.id} not found`);
+        res.status(404).send(`ID ${req.params.id} not found`).end();
+    }
+    const classeSchool = await sequelizeCourse.findByPk(parseInt(req.params.classeSchoolID));
+    if (!classeSchool) {
+        return res.status(404).send("Error: Class school not found in database. Check ID Class and try again.").end();
     }
     try {
-        const {name, age, subject} = req.body;
+        const {name, age} = req.body;
         teacher.name = name === undefined ? teacher.name : name;
-        teacher.age = age === undefined ? teacher.age : age;
-        teacher.subject = subject === undefined ? teacher.subject : subject;   
+        teacher.age = age === undefined ? teacher.age : age;        
         await teacher.save();
         res.status(201).json(teacher);        
     } catch (error) {
