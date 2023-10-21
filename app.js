@@ -1,20 +1,23 @@
 const {sequelize} = require('./database/models');
 const express = require('express');
 const app = express();
-const student = require('./routes/routeStudent');
-const teacher = require('./routes/routeTeacher');
+const student = require('./routes/routerStudent');
+const teacher = require('./routes/routerTeacher');
 const grade = require('./routes/routerGrade');
 const classeSchool = require('./routes/routerCourse');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger.json');
 
 // Configuração
     // Middleware para analisar solicitações JSON
-    app.use(express.json());
+    app.use(express.json());    
 
 // Rotas
     app.use('/v1/estudante', student);
     app.use('/v1/professor', teacher);
     app.use('/v1/disciplina', classeSchool);
     app.use('/v1/avaliacao', grade);
+    app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // Depuração
 // console.log('o que tem dentro do sequelize? ->', sequelize);
