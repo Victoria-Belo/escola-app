@@ -29,7 +29,7 @@
     }
   ],
   "paths": {
-    "/v1/disciplina": {     
+    "v1/disciplina": {     
       "get": {
         "tags": ["Disciplinas"],
         "description": "",
@@ -72,7 +72,7 @@
         }
       }
     },
-    "/v1/disciplina/{id}": {     
+    "v1/disciplina/{id}": {     
       "get": {
         "tags": ["Disciplinas"],
         "description": "",
@@ -158,7 +158,7 @@
         }
       }      
     },
-    "/v1/disciplina/add/{classeSchoolID}/{teacherID}": {
+    "v1/disciplina/add/{classeSchoolID}/{teacherID}": {
       "put": {
         "tags": ["Disciplinas"],
         "description": "",
@@ -190,7 +190,7 @@
       }
     },
 
-    "/v1/estudante": {
+    "v1/estudante": {
       "get": {
         "tags": ["Estudantes"],
         "description": "Find All",
@@ -233,7 +233,7 @@
         }
       }
     },
-    "/v1/estudante/{id}": {
+    "v1/estudante/{id}": {
       "get": {
         "tags": ["Estudantes"],
         "description": "Find by Pk",
@@ -316,7 +316,7 @@
         }
       }
     },
-    "/v1/estudante/add-class/{studentID}/{classSchoolID}": {
+    "v1/estudante/add-class/{studentID}/{classSchoolID}": {
       "put": {
         "tags": ["Estudantes"],
         "description": "",
@@ -347,7 +347,7 @@
         }
       }
     },
-    "/v1/estudante/remove-class/{studentID}/{classSchoolID}": {
+    "v1/estudante/remove-class/{studentID}/{classSchoolID}": {
       "put": {
         "tags": ["Estudantes"],
         "description": "",
@@ -379,7 +379,7 @@
       }
     },
 
-    "/v1/professor": {
+    "v1/professor": {
       "get": {
         "tags": ["Professores"],
         "description": "",
@@ -419,7 +419,7 @@
         }
       }
     },
-    "/v1/professor/{id}": {
+    "v1/professor/{id}": {
       "get": {
         "tags": ["Professores"],
         "description": "",
@@ -506,7 +506,7 @@
       }
     },
 
-    "/v1/avaliacao": {
+    "v1/avaliacao": {
       "get": {
         "tags":["Avaliações"],
         "description": "",
@@ -546,7 +546,7 @@
         }
       }
     },    
-    "/v1/avaliacao/{id}": {
+    "v1/avaliacao/{id}": {
       "get": {
         "tags":["Avaliações"],
         "description": "",
@@ -632,7 +632,7 @@
         }
       }
     },
-    "/v1/avaliacao/add-grade/{courseID}/{teacherID}/{studentID}": {
+    "v1/avaliacao/add-grade/{courseID}/{teacherID}/{studentID}": {
       "post": {
         "tags":["Avaliações"],
         "description": "",

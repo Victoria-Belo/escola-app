@@ -7,11 +7,12 @@ const grade = require('./routes/routerGrade');
 const classeSchool = require('./routes/routerCourse');
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger.json');
+const cors = require('cors');
 
 // Configuração
     // Middleware para analisar solicitações JSON
     app.use(express.json());    
-
+    app.use(cors());
 // Rotas
     app.use('/v1/estudante', student);
     app.use('/v1/professor', teacher);
