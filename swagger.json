@@ -5,10 +5,10 @@
     "title": "REST API",
     "description": "Gerenciamento de escola. Cadastre, edite, remova e busque alunos, professores, cursos e avs"
   },
-  "host": "https://victoria-belo.github.io/escola-app/",
+  "host": "https://victoria-belo.github.io/escola-app",
   "basePath": "/",
   "schemes": [
-    "https"
+    "https"    
   ],
   "tags": [ 
     {
