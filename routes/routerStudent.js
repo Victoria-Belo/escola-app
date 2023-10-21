@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { sequelizeStudent, sequelize, sequelizeCourse } = require('../database/models');
 
+
 router.get('/', async (req, res) => {
   const sqlQuery = `
     SELECT
