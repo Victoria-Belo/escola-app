@@ -4,7 +4,7 @@ const app = express();
 const student = require('./routes/routeStudent');
 const teacher = require('./routes/routeTeacher');
 const grade = require('./routes/routerGrade');
-const classeSchool = require('./routes/routerClasses');
+const classeSchool = require('./routes/routerCourse');
 
 // Configuração
     // Middleware para analisar solicitações JSON

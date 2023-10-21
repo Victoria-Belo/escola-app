@@ -28,13 +28,9 @@ const sequelizeTeacher = sequelize.define('Professor', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  subject: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
 });
 
-const sequelizeClass = sequelize.define('Disciplina', {
+const sequelizeCourse = sequelize.define('Disciplina', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -59,19 +55,23 @@ const sequelizeGrade = sequelize.define('Nota', {
 // Definição das tabelas de associação para many-to-many. Necessário.
 const StudentDisciplines = sequelize.define('StudentDisciplines', {});
 const TeacherGrade = sequelize.define('TeacherGrade', {});
+const TeacherDisciplines =  sequelize.define('TeacherDisciplines', {});
 
 //  Associações many-to-many entre Aluno e Disciplina, Professor e Aluno.
-sequelizeStudent.belongsToMany(sequelizeClass, { through: 'StudentDisciplines' });
-sequelizeClass.belongsToMany(sequelizeStudent, { through: 'StudentDisciplines' });
+sequelizeStudent.belongsToMany(sequelizeCourse, { through: 'StudentDisciplines' });
+sequelizeCourse.belongsToMany(sequelizeStudent, { through: 'StudentDisciplines' });
 
 sequelizeTeacher.belongsToMany(sequelizeStudent, { through: 'TeacherGrade' });
 sequelizeStudent.belongsToMany(sequelizeTeacher, { through: 'TeacherGrade' });
+
+sequelizeTeacher.belongsToMany(sequelizeCourse, { through: 'TeacherDisciplines' });
+sequelizeCourse.belongsToMany(sequelizeTeacher, { through: 'TeacherDisciplines' });
 
 // Associações one-to-many entre Aluno e Nota, Professor e Disciplina.
 sequelizeStudent.hasMany(sequelizeGrade);
 sequelizeGrade.belongsTo(sequelizeStudent);
 
-sequelizeTeacher.hasMany(sequelizeClass);
-sequelizeClass.belongsTo(sequelizeTeacher);
+sequelizeCourse.hasMany(sequelizeGrade);
+sequelizeGrade.belongsTo(sequelizeCourse);
 
-module.exports =  { sequelizeStudent, sequelizeTeacher, sequelizeClass, sequelizeGrade, sequelize, StudentDisciplines,TeacherGrade };
+module.exports =  { sequelizeStudent, sequelizeTeacher, sequelizeCourse, sequelizeGrade, sequelize};
