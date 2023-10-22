@@ -6,12 +6,12 @@
   <img src="https://img.shields.io/badge/FINALIZADO-green?logo=github&label=STATUS" />
 </p>
 <hr>
-#INDICE
-- [BRANCHS](#BRANCHS)
-- [ESTRUTURA](#ESTRUTURA)
-- [UML](#UML)
+# INDICE
+- [BRANCHS](# BRANCHS)
+- [ESTRUTURA](# ESTRUTURA)
+- [UML](# UML)
 <hr>
-#BRANCHS
+# BRANCHS
 <p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/ </p>
 <br>
 <p><img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Configurado para localhost. Baixe, instale e acesse http://localhost:3000/api </p>
@@ -19,12 +19,12 @@
 <hr>
 <img src="swagger-ui-dist/demo.png" />
 <hr> 
-#ESTRUTURA
+# ESTRUTURA
 <p align="center"><img src="swagger-ui-dist/estrutura.png" /></p>
 
 
 <hr>
-#UML
+# UML
 <p align="center"><img src="swagger-ui-dist/uml.png" /></p>
 
 
