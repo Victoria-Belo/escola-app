@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Configurado para localhost. Baixe, instale e acesse http://localhost:3000/api 
 
 <hr>
-<img src="" />
+<img src="swagger-ui-dist/demo.png" />
 <hr> 
 <h3>ESTRUTURA</h3>
 escola-app/
