@@ -33,7 +33,7 @@ escola-app/
 <h3>UML</h3>
 
 +----------------+     +-----------------+
-|     Estudante |     |    Professor    |
+|     Estudante  |     |    Professor    |
 +----------------+     +-----------------+
 | - id: int      |     | - id: int       |
 | - nome: string |     | - nome: string  |
