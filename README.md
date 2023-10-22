@@ -9,9 +9,9 @@
 <hr>
 
 ## ÍNDICE
-- [BRANCHS](#branchs)
-- [ESTRUTURA](#estrutura)
-- [UML](#uml)
+:small_blue_diamond: [BRANCHS](#branchs)
+:small_blue_diamond: [ESTRUTURA](#estrutura)
+:small_blue_diamond: [UML](#uml)
 
 ## BRANCHS
 <p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/ </p>
