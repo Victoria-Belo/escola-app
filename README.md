@@ -6,10 +6,10 @@
   <img src="https://img.shields.io/badge/FINALIZADO-green?logo=github&label=STATUS" />
 </p>
 <hr>
-# INDICE
-- [BRANCHS](# BRANCHS)
-- [ESTRUTURA](# ESTRUTURA)
-- [UML](# UML)
+# ÍNDICE
+- [BRANCHS](#branchs)
+- [ESTRUTURA](#estrutura)
+- [UML](#uml)
 <hr>
 # BRANCHS
 <p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/ </p>
@@ -22,11 +22,9 @@
 # ESTRUTURA
 <p align="center"><img src="swagger-ui-dist/estrutura.png" /></p>
 
-
 <hr>
 # UML
 <p align="center"><img src="swagger-ui-dist/uml.png" /></p>
-
 
 Estudante:
 Um estudante pode estar associado a muitas disciplinas.
