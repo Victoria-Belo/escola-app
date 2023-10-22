@@ -17,6 +17,13 @@
 <p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/ </p>
 <br>
 <p><img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Configurado para localhost. Baixe, instale e acesse http://localhost:3000/api </p>
+<br>
+
+### DEMONSTRAÇÃO
+
+<p><img src="swagger-ui-dist/demo.png"></p>
+
+<hr>
 
 ## ESTRUTURA
 <p align="center"><img src="swagger-ui-dist/estrutura.png" /></p>
