@@ -1,10 +1,12 @@
-<h1 align="center"><img src="https://img.shields.io/badge/FINALIZADO-green?logo=github&label=STATUS" /> Escola-App </h1>
-<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
-<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" />
-<img src="https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue" />
+<h1 align="center"> Escola-App </h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" />
+  <img src="https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue" />
+  <img src="https://img.shields.io/badge/FINALIZADO-green?logo=github&label=STATUS" />
+</p>
 <hr>
 <h3>BRANCHS</h3>
-
 <img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: : Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/
 
 <img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Configurado para localhost. Baixe, instale e acesse http://localhost:3000/api 
@@ -14,11 +16,7 @@
 <hr> 
 <h3>ESTRUTURA</h3>
 escola-app/
-  ├── node_modules/
-  ├── public/
-  │   ├── css/
-  │   ├── js/
-  │   ├── images/
+  ├── node_modules/ 
   ├── database/
   │   ├── database.sqlite
   │   ├── models.js
