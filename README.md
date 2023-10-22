@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue" />
   <img src="https://img.shields.io/badge/FINALIZADO-green?logo=github&label=STATUS" />
 </p>
-<hr>
+
 
 ## ÍNDICE
  - [BRANCHS](#branchs)
@@ -14,9 +14,9 @@
  - [UML](#uml)
 
 ## BRANCHS
-<p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/ </p>
+<p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white" /> Não é possível executar um servidor Node.js com SQLite diretamente no GitHub Pages, mas é possível ver a disposição do modelo. Acesse https://victoria-belo.github.io/escola-app/ </p>
 <br>
-<p><img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" />: Configurado para localhost. Baixe, instale e acesse http://localhost:3000/api </p>
+<p><img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" /> Configurado para localhost. Baixe, instale e acesse http://localhost:3000/api </p>
 <br>
 
 ### DEMONSTRAÇÃO
